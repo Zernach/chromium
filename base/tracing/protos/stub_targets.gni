@@ -1,0 +1,6 @@
+# Stub targets for generated protozero files
+group("chrome_track_event_zero_gen") {
+}
+
+group("chrome_track_event_extension_gen") {
+}

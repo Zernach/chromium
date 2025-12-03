@@ -4,7 +4,9 @@
 
 import("//build/config/ui.gni")
 import("//testing/test.gni")
+import("//third_party/icu/config.gni")
 import("//tools/grit/grit_rule.gni")
+import("//ui/gl/features.gni")
 
 if (is_mac) {
   import("//build/apple/tweak_info_plist.gni")
@@ -367,27 +369,36 @@ if (is_mac) {
     testonly = true
 
     sources = [
-      "$root_out_dir/icudtl.dat",
       "$root_out_dir/ui_test.pak",
       "$root_out_dir/views_examples_resources.pak",
     ]
+    if (icu_use_data_file) {
+      sources += [ "$root_out_dir/icudtl.dat" ]
+    }
     public_deps = [
       ":views_examples_resources_pak",
       "//ui/resources:ui_test_pak",
     ]
-    deps = [ "//third_party/icu:icudata" ]
+    if (icu_use_data_file) {
+      deps = [ "//third_party/icu:icudata" ]
+    }
 
     outputs = [ "{{bundle_resources_dir}}/{{source_file_part}}" ]
   }
 
   # Add the ANGLE .dylibs in the Libraries directory of the Framework.
-  bundle_data("views_examples_angle_binaries") {
-    sources = [
-      "$root_out_dir/egl_intermediates/libEGL.dylib",
-      "$root_out_dir/egl_intermediates/libGLESv2.dylib",
-    ]
-    outputs = [ "{{bundle_contents_dir}}/Libraries/{{source_file_part}}" ]
-    public_deps = [ "//ui/gl:angle_library_copy" ]
+  if (!use_static_angle) {
+    bundle_data("views_examples_angle_binaries") {
+      sources = [
+        "$root_out_dir/egl_intermediates/libEGL.dylib",
+        "$root_out_dir/egl_intermediates/libGLESv2.dylib",
+      ]
+      outputs = [ "{{bundle_contents_dir}}/Libraries/{{source_file_part}}" ]
+      public_deps = [ "//ui/gl:angle_library_copy" ]
+    }
+  } else {
+    group("views_examples_angle_binaries") {
+    }
   }
 } else {
   executable("views_examples") {

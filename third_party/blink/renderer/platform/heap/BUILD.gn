@@ -15,6 +15,12 @@ declare_args() {
   # Embedders like CEF use this flag to include blink in a shared library under
   # non-component build.
   blink_heap_inside_shared_library = is_component_build
+
+  # Whether to enable object names in cppgc (for debugging).
+  cppgc_enable_object_names = false
+
+  # Whether to enable young generation in cppgc.
+  cppgc_enable_young_generation = false
 }
 
 assert(blink_heap_inside_shared_library || !is_component_build,

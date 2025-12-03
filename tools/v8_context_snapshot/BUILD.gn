@@ -125,3 +125,6 @@ if (use_v8_context_snapshot) {
     }
   }
 }
+
+group("v8_context_snapshot_generator") {
+}

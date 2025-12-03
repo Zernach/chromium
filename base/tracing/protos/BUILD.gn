@@ -62,3 +62,9 @@ grit("chrome_track_event_resources") {
   ]
   deps = [ ":chrome_track_event_extension_gen" ]
 }
+
+group("chrome_track_event_zero_gen") {
+}
+
+group("chrome_track_event_extension_gen") {
+}

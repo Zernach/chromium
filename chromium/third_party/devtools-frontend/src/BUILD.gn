@@ -1,0 +1,43 @@
+# Copyright 2025 The Chromium Authors
+# Use of this source code is governed by a BSD-style license that can be
+# found in the LICENSE file.
+
+# Stub file for standalone builds without DevTools Frontend dependency
+
+group("devtools_frontend_resources") {
+}
+
+group("devtools_all_files") {
+}
+
+# Generate a stub GRD file for DevTools
+action("generate_devtools_grd") {
+  script = "//build/write_buildflag_header.py"
+  outputs = [ "$root_gen_dir/third_party/devtools-frontend/src/front_end/devtools_resources.grd" ]
+  args = [
+    "--output",
+    rebase_path(outputs[0], root_build_dir),
+    "--rulename",
+    "stub",
+    "--gen_dir",
+    rebase_path(root_gen_dir, root_build_dir),
+    "--definitions",
+    "",
+  ]
+}
+
+# Generate a stub inspector overlay resources GRD
+action("generate_devtools_inspector_overlay_resources") {
+  script = "//build/write_buildflag_header.py"
+  outputs = [ "$root_out_dir/resources/inspector_overlay/inspector_overlay_resources.grd" ]
+  args = [
+    "--output",
+    rebase_path(outputs[0], root_build_dir),
+    "--rulename",
+    "stub",
+    "--gen_dir",
+    rebase_path(root_gen_dir, root_build_dir),
+    "--definitions",
+    "",
+  ]
+}

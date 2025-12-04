@@ -1,0 +1,125 @@
+# Copyright 2025 The Chromium Authors
+# Use of this source code is governed by a BSD-style license that can be
+# found in the LICENSE file.
+
+# Stub file for standalone builds without WebRTC dependency
+
+group("array_view") {
+}
+
+group("candidate") {
+}
+
+group("ice_transport_interface") {
+}
+
+group("make_ref_counted") {
+}
+
+group("rtc_error") {
+}
+
+group("scoped_refptr") {
+}
+
+group("field_trials_view") {
+}
+
+group("location") {
+}
+
+group("async_dns_resolver") {
+}
+
+group("create_modular_peer_connection_factory") {
+}
+
+group("data_channel_interface") {
+}
+
+group("datagram_connection") {
+}
+
+group("datagram_connection_factory") {
+}
+
+group("dtls_transport_interface") {
+}
+
+group("dtmf_sender_interface") {
+}
+
+group("enable_media") {
+}
+
+group("frame_transformer_factory") {
+}
+
+group("frame_transformer_interface") {
+}
+
+group("ice_transport_factory") {
+}
+
+group("jsep") {
+}
+
+group("libjingle_logging_api") {
+}
+
+group("local_network_access_permission") {
+}
+
+group("media_stream_interface") {
+}
+
+group("packet_socket_factory") {
+}
+
+group("peer_connection_interface") {
+}
+
+group("priority") {
+}
+
+group("rtc_stats_api") {
+}
+
+group("rtp_headers") {
+}
+
+group("rtp_packet_info") {
+}
+
+group("rtp_parameters") {
+}
+
+group("rtp_receiver_interface") {
+}
+
+group("rtp_sender_interface") {
+}
+
+group("rtp_transceiver_interface") {
+}
+
+group("sctp_transport_interface") {
+}
+
+group("set_local_description_observer_interface") {
+}
+
+group("set_remote_description_observer_interface") {
+}
+
+group("simulated_network_api") {
+}
+
+group("transport_api") {
+}
+
+group("turn_customizer") {
+}
+
+group("video_track_source_proxy_factory") {
+}

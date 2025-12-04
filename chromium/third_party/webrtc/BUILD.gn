@@ -1,0 +1,14 @@
+# Copyright 2025 The Chromium Authors
+# Use of this source code is governed by a BSD-style license that can be
+# found in the LICENSE file.
+
+# Stub file for standalone builds without WebRTC dependency
+
+config("library_impl_config") {
+}
+
+config("common_config") {
+}
+
+config("common_inherited_config") {
+}

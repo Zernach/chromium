@@ -1,0 +1,14 @@
+group("streaming_configs") {
+}
+
+group("remoting_proto") {
+}
+
+group("common") {
+}
+
+group("receiver") {
+}
+
+group("sender") {
+}

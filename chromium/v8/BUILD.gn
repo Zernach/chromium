@@ -1,0 +1,44 @@
+# Copyright 2025 The Chromium Authors
+# Use of this source code is governed by a BSD-style license that can be
+# found in the LICENSE file.
+
+# Stub file for standalone builds without V8 dependency
+
+group("gn_all") {
+}
+
+group("v8_shell") {
+}
+
+group("v8_snapshot") {
+}
+
+group("d8") {
+}
+
+group("v8") {
+}
+
+group("v8_headers") {
+}
+
+group("v8_version") {
+}
+
+config("external_startup_data") {
+}
+
+group("v8_libplatform") {
+}
+
+config("external_config") {
+}
+
+group("v8_internal_headers") {
+}
+
+group("cppgc_headers") {
+}
+
+group("run_mksnapshot_default") {
+}

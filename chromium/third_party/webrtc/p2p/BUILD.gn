@@ -1,0 +1,59 @@
+# Copyright 2025 The Chromium Authors
+# Use of this source code is governed by a BSD-style license that can be
+# found in the LICENSE file.
+
+# Stub file for standalone builds without WebRTC dependency
+
+group("active_ice_controller_factory_interface") {
+}
+
+group("active_ice_controller_interface") {
+}
+
+group("basic_ice_controller") {
+}
+
+group("connection") {
+}
+
+group("default_ice_transport_factory") {
+}
+
+group("ice_agent_interface") {
+}
+
+group("ice_controller_interface") {
+}
+
+group("ice_switch_reason") {
+}
+
+group("ice_transport_internal") {
+}
+
+group("p2p_transport_channel") {
+}
+
+group("transport_description") {
+}
+
+group("basic_packet_socket_factory") {
+}
+
+group("basic_port_allocator") {
+}
+
+group("p2p_constants") {
+}
+
+group("packet_transport_internal") {
+}
+
+group("port") {
+}
+
+group("port_allocator") {
+}
+
+group("port_interface") {
+}

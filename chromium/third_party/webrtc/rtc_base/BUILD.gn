@@ -1,0 +1,86 @@
+# Copyright 2025 The Chromium Authors
+# Use of this source code is governed by a BSD-style license that can be
+# found in the LICENSE file.
+
+# Stub file for standalone builds without WebRTC dependency
+
+group("logging") {
+}
+
+group("stringutils") {
+}
+
+group("cpu_info") {
+}
+
+group("event_tracer") {
+}
+
+group("timeutils") {
+}
+
+group("async_dns_resolver") {
+}
+
+group("async_packet_socket") {
+}
+
+group("byte_order") {
+}
+
+group("crypto_random") {
+}
+
+group("data_rate_limiter") {
+}
+
+group("ip_address") {
+}
+
+group("mdns_responder_interface") {
+}
+
+group("net_helper") {
+}
+
+group("net_helpers") {
+}
+
+group("net_test_helpers") {
+}
+
+group("network") {
+}
+
+group("refcount") {
+}
+
+group("rtc_certificate_generator") {
+}
+
+group("socket") {
+}
+
+group("socket_address") {
+}
+
+group("socket_factory") {
+}
+
+group("socket_server") {
+}
+
+group("ssl") {
+}
+
+group("ssl_adapter") {
+}
+
+group("threading") {
+}
+
+group("timestamp_aligner") {
+}
+
+group("weak_ptr") {
+}

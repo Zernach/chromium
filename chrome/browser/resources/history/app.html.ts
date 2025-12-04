@@ -155,6 +155,8 @@ export function getHtml(this: HistoryAppElement) {
         </history-side-bar>
       </cr-drawer>`}'>
     </cr-lazy-render-lit>
+
+    <button id="chat-fab" aria-label="Chat">💬</button>
 <!--_html_template_end_-->`;
   // clang-format on
 }

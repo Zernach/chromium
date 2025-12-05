@@ -11,8 +11,18 @@ import("//crypto/features.gni")
 import("//net/features.gni")
 import("//testing/libfuzzer/fuzzer_test.gni")
 import("//testing/test.gni")
-import("//third_party/icu/config.gni")
-import("//third_party/protobuf/proto_library.gni")
+# import("//third_party/icu/config.gni")  # Commented out: third_party/icu not synced
+# Default value for icu_use_data_file when ICU config is not available
+if (!defined(icu_use_data_file)) {
+  icu_use_data_file = false
+}
+# import("//third_party/protobuf/proto_library.gni")  # Commented out: third_party/protobuf not synced
+# Stub definition for proto_library when protobuf is not available
+template("proto_library") {
+  group(target_name) {
+    # Empty stub - proto_library not available
+  }
+}
 import("//tools/grit/grit_rule.gni")
 import("//url/features.gni")
 

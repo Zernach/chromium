@@ -5,7 +5,13 @@
 import("//testing/libfuzzer/fuzzer_test.gni")
 import("//testing/test.gni")
 import("//third_party/libaom/options.gni")
-import("//third_party/protobuf/proto_library.gni")
+# import("//third_party/protobuf/proto_library.gni")  # Commented out: third_party/protobuf not synced
+# Stub definition for proto_library when protobuf is not available
+template("proto_library") {
+  group(target_name) {
+    # Empty stub - proto_library not available
+  }
+}
 
 proto_library("logging_proto") {
   sources = [ "logging/proto/raw_events.proto" ]

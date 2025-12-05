@@ -432,10 +432,10 @@ group("gn_all") {
 
     if (is_linux || is_chromeos || is_android) {
       deps += [
-        # "//third_party/breakpad:breakpad_unittests",  # Commented out: dependency not synced
-        # "//third_party/breakpad:core-2-minidump",  # Commented out: dependency not synced
-        # "//third_party/breakpad:generate_test_dump",  # Commented out: dependency not synced
-        # "//third_party/breakpad:minidump-2-core",  # Commented out: dependency not synced
+        "//third_party/breakpad:breakpad_unittests",
+        "//third_party/breakpad:core-2-minidump",
+        "//third_party/breakpad:generate_test_dump",
+        "//third_party/breakpad:minidump-2-core",
         "//tools/dump_process_memory:dump_process",
       ]
     }
@@ -573,10 +573,10 @@ group("gn_all") {
         "//mojo:mojo_perftests",
         "//services/service_manager/public/cpp",
         "//testing/gmock:gmock_main",
-        # "//third_party/breakpad:dump_syms($host_system_allocator_toolchain)",  # Commented out: dependency not synced
-        # "//third_party/breakpad:microdump_stackwalk($host_system_allocator_toolchain)",  # Commented out: dependency not synced
-        # "//third_party/breakpad:minidump_dump($host_system_allocator_toolchain)",  # Commented out: dependency not synced
-        # "//third_party/breakpad:minidump_stackwalk($host_system_allocator_toolchain)",  # Commented out: dependency not synced
+        "//third_party/breakpad:dump_syms($host_system_allocator_toolchain)",
+        "//third_party/breakpad:microdump_stackwalk($host_system_allocator_toolchain)",
+        "//third_party/breakpad:minidump_dump($host_system_allocator_toolchain)",
+        "//third_party/breakpad:minidump_stackwalk($host_system_allocator_toolchain)",
       ]
     }
 
@@ -599,7 +599,7 @@ group("gn_all") {
 
     if (is_mac) {
       deps += [
-        # "//third_party/breakpad:dump_syms($host_system_allocator_toolchain)",  # Commented out: dependency not synced
+        "//third_party/breakpad:dump_syms($host_system_allocator_toolchain)",
 
         # The following are accessibility API tools.
         "//tools/accessibility/inspect:ax_dump_events",
@@ -966,7 +966,7 @@ if (is_win) {
       "//media/midi:midi_unittests",
       "//net:net_unittests",
       "//sql:sql_unittests",
-      # "//third_party/breakpad:symupload",  # Commented out: dependency not synced
+      "//third_party/breakpad:symupload",
       "//ui/base:ui_base_unittests",
       "//ui/gfx:gfx_unittests",
       "//ui/touch_selection:ui_touch_selection_unittests",
@@ -998,7 +998,7 @@ if (is_chromeos) {
       "//sandbox/linux:chrome_sandbox",
       "//sandbox/linux:sandbox_linux_unittests",
       "//services/screen_ai:screen_ai_ocr_perf_test",
-      # "//third_party/breakpad:minidump_stackwalk($host_system_allocator_toolchain)",  # Commented out: dependency not synced
+      "//third_party/breakpad:minidump_stackwalk($host_system_allocator_toolchain)",
       "//third_party/dawn/src/dawn/tests:dawn_end2end_tests",
       "//third_party/dawn/src/dawn/tests:dawn_unittests",
       "//ui/ozone:ozone_integration_tests",
@@ -1212,17 +1212,17 @@ if (use_blink && !is_cronet_build) {
 
     if (is_android) {
       data_deps += [
-        # "//third_party/breakpad:breakpad_unittests",  # Commented out: dependency not synced
+        "//third_party/breakpad:breakpad_unittests",
         "//tools/android/forwarder2",
 
         # Using the target toolchain for this tool, as it's run during tests not
         # during the build. This places a symlink in the root_build_dir for
         # scrips to use.
-        # "//third_party/breakpad:dump_syms",  # Commented out: dependency not synced
-        # "//third_party/breakpad:microdump_stackwalk",  # Commented out: dependency not synced
-        # "//third_party/breakpad:minidump_dump",  # Commented out: dependency not synced
-        # "//third_party/breakpad:minidump_stackwalk",  # Commented out: dependency not synced
-        # "//third_party/breakpad:symupload",  # Commented out: dependency not synced
+        "//third_party/breakpad:dump_syms",
+        "//third_party/breakpad:microdump_stackwalk",
+        "//third_party/breakpad:minidump_dump",
+        "//third_party/breakpad:minidump_stackwalk",
+        "//third_party/breakpad:symupload",
       ]
     } else {
       data_deps += [ "//content/web_test:web_test_common_mojom_js_data_deps" ]
@@ -1232,21 +1232,21 @@ if (use_blink && !is_cronet_build) {
       # Using the default toolchain for this tool, as it's run during tests not
       # during the build. This places a symlink in the root_build_dir for scrips
       # to use.
-      # data_deps += [ "//third_party/breakpad:minidump_stackwalk" ]  # Commented out: dependency not synced
+      data_deps += [ "//third_party/breakpad:minidump_stackwalk" ]
     }
 
     if (is_mac) {
       # Using the default toolchain for this tool, as it's run during tests not
       # during the build, and on Mac we support cross-building from a different
       # architecture.
-      # data_deps += [ "//third_party/breakpad:dump_syms" ]  # Commented out: dependency not synced
+      data_deps += [ "//third_party/breakpad:dump_syms" ]
     }
 
     if (is_linux || is_chromeos) {
       # Using the default toolchain for this tool, as it's run during tests not
       # during the build. This places a symlink in the root_build_dir for scrips
       # to use.
-      # data_deps += [ "//third_party/breakpad:dump_syms" ]  # Commented out: dependency not synced
+      data_deps += [ "//third_party/breakpad:dump_syms" ]
     }
 
     if (is_fuchsia) {
@@ -1540,7 +1540,7 @@ group("chromium_builder_perf") {
     }
 
     if (!is_win) {
-      # data_deps += [ "//third_party/breakpad:minidump_stackwalk($host_system_allocator_toolchain)" ]  # Commented out: dependency not synced
+      data_deps += [ "//third_party/breakpad:minidump_stackwalk($host_system_allocator_toolchain)" ]
     }
   }
 

@@ -265,7 +265,7 @@ group("gn_all") {
     } else {
       deps += [
         "//ios:all",
-        "//third_party/crashpad/crashpad:crashpad_tests",
+        # "//third_party/crashpad/crashpad:crashpad_tests",  # Commented out: third_party/crashpad not synced
       ]
     }
 
@@ -680,11 +680,12 @@ group("gn_all") {
     }
 
     if (is_mac || is_win || is_android || is_linux || is_chromeos) {
-      deps += [
-        "//third_party/crashpad/crashpad:crashpad_tests",
-        "//third_party/crashpad/crashpad/handler:crashpad_handler",
-        "//third_party/crashpad/crashpad/tools:crashpad_database_util",
-      ]
+      # Commented out: third_party/crashpad not synced
+      # deps += [
+      #   "//third_party/crashpad/crashpad:crashpad_tests",
+      #   "//third_party/crashpad/crashpad/handler:crashpad_handler",
+      #   "//third_party/crashpad/crashpad/tools:crashpad_database_util",
+      # ]
     }
 
     if (enable_message_center) {

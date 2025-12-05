@@ -4,7 +4,11 @@
 
 import("//build/config/ui.gni")
 import("//testing/test.gni")
-import("//third_party/icu/config.gni")
+# import("//third_party/icu/config.gni")  # Commented out: third_party/icu not synced
+# Default value for icu_use_data_file when ICU config is not available
+if (!defined(icu_use_data_file)) {
+  icu_use_data_file = false
+}
 import("//tools/grit/grit_rule.gni")
 import("//ui/gl/features.gni")
 
@@ -129,7 +133,7 @@ component("views_examples_lib") {
     "//base",
     "//cc/paint",
     "//skia",
-    "//third_party/icu",
+    # "//third_party/icu",  # Commented out: third_party/icu not synced
     "//ui/actions",
     "//ui/base",
     "//ui/color",
@@ -340,7 +344,7 @@ if (is_mac) {
     deps = [
       ":views_examples_angle_binaries",
       ":views_examples_main",
-      "//third_party/icu:icudata",
+      # "//third_party/icu:icudata",  # Commented out: third_party/icu not synced
     ]
 
     bundle_deps = [ ":views_examples_framework_resources" ]

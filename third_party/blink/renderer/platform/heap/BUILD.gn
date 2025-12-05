@@ -17,10 +17,10 @@ declare_args() {
   blink_heap_inside_shared_library = is_component_build
 
   # Whether to enable object names in cppgc (for debugging).
-  cppgc_enable_object_names = false
+  # Note: cppgc_enable_object_names is declared in //v8/gni/v8.gni
 
   # Whether to enable young generation in cppgc.
-  cppgc_enable_young_generation = false
+  # Note: cppgc_enable_young_generation is declared in //v8/gni/v8.gni
 }
 
 assert(blink_heap_inside_shared_library || !is_component_build,

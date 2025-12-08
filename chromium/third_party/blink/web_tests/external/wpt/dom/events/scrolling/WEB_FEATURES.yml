@@ -1,7 +1,0 @@
-features:
-- name: scrollend
-  files:
-  - scrollend-*
-- name: wheel-events
-  files:
-  - wheel-event-transactions-*

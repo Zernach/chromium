@@ -1,5 +1,0 @@
-features:
-- name: barprop
-  files:
-  - BarProp.window.js
-  - noopener-noreferrer-BarProp.window.js

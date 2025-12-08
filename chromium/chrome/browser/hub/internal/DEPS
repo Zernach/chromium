@@ -1,3 +1,0 @@
-include_rules = [
-  "+components/browser_ui/edge_to_edge/android",
-]

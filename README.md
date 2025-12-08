@@ -1,12 +1,15 @@
 # Chromium History Extension
 
-A Chrome extension that lets you chat with AI about your browsing history. Features high-performance Rust/WebAssembly processing and a long-running websocket backend.
+A Chrome extension that lets you chat with AI about your browsing history.
+Features high-performance Rust/WebAssembly processing and a long-running
+websocket backend.
 
 ## Project Overview
 
 This project consists of two main components:
 
-1. **Chrome Extension** - Client-side extension with Rust/WASM for data processing
+1. **Chrome Extension** - Client-side extension with Rust/WASM for data
+   processing
 2. **Backend** - Go-based websocket server for AI request handling
 
 ## Architecture
@@ -118,11 +121,13 @@ chromium-history-extension/
 ## Tech Stack
 
 ### Frontend (Chrome Extension)
+
 - **Rust** → WebAssembly for data processing
 - **Dart** → JavaScript for Chrome APIs and UI
 - **Manifest V3** for modern Chrome extension
 
 ### Backend (WebSocket Server)
+
 - **Go** for WebSocket server
 - **Long-running WebSocket connections** for real-time communication
 - **Environment variables** for secure API key storage
@@ -131,22 +136,28 @@ chromium-history-extension/
 ## Documentation
 
 ### Getting Started
-- [Backend Setup Guide](backend/SETUP_GUIDE.md) - Complete server setup walkthrough
+
+- [Backend Setup Guide](backend/SETUP_GUIDE.md) - Complete server setup
+  walkthrough
 - [Backend Quick Reference](backend/QUICK_REFERENCE.md) - Essential commands
 - [Extension README](chromium-extension/README.md) - Extension details
 
 ### Technical Details
+
 - [Backend README](backend/README.md) - Backend architecture and API
-- [Backend Integration Guide](chromium-extension/docs/backend-integration.md) - How frontend connects to backend
+- [Backend Integration Guide](chromium-extension/docs/backend-integration.md) -
+  How frontend connects to backend
 - [PRD](chromium-extension/docs/prd.md) - Product requirements
 
 ## Prerequisites
 
 ### For Backend Server
+
 - Go 1.19+ installed
 - OpenAI API key
 
 ### For Extension Development
+
 - Rust 1.70+ and wasm-pack
 - Dart SDK 3.0+
 - Make (optional)
@@ -173,6 +184,7 @@ make build   # Rebuilds extension
 ## Key Commands
 
 ### Backend
+
 ```bash
 # Start server
 cd backend && ./start.sh
@@ -185,6 +197,7 @@ tail -f logs/server.log
 ```
 
 ### Extension
+
 ```bash
 # Build
 cd chromium-extension && make build
@@ -201,6 +214,7 @@ cd rust && cargo test
 **Current Settings**: 10 requests per minute per IP address, burst of 5
 
 To modify, edit `backend/main.go`:
+
 ```go
 rateLimiter = NewRateLimiter(10.0/60.0, 5)
 ```
@@ -208,10 +222,12 @@ rateLimiter = NewRateLimiter(10.0/60.0, 5)
 ## Cost Estimates
 
 ### Server Hosting
+
 - Self-hosted: $0 (use your own hardware)
 - Cloud VPS: ~$5-20/month (depending on provider)
 
 ### OpenAI API (GPT-4o-mini)
+
 - ~$0.001-0.005 per request (varies with history size)
 
 **Total**: ~$0.001-0.005 per request + hosting
@@ -231,15 +247,18 @@ For 10,000 requests/month: ~$10-50/month + hosting
 ## Troubleshooting
 
 ### "Backend connection issue" in extension
+
 1. Verify WebSocket URL in `extension/background/service_worker.js`
 2. Check server is running: `ps aux | grep backend`
 3. Test WebSocket connection with a client tool
 
 ### "Rate limit exceeded"
+
 - Wait 1 minute between requests
 - Or increase rate limit in `backend/main.go` and restart server
 
 ### Backend returns errors
+
 1. Check server logs: `tail -f backend/logs/server.log`
 2. Verify OpenAI API key is set in environment variables
 3. Check OpenAI API status
@@ -265,6 +284,3 @@ For 10,000 requests/month: ~$10-50/month + hosting
 ---
 
 Built with Rust 🦀, Go 🔵, and WebAssembly 🕸️
-
-
-

@@ -1,4 +1,0 @@
-include_rules = [
-  "+ios/chrome/browser/history/model",
-  "+ios/chrome/browser/sessions/model",
-]

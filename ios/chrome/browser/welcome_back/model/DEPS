@@ -1,4 +1,0 @@
-include_rules = [
-  "+ios/chrome/browser/first_run/public",
-  "+ios/chrome/browser/first_run/ui_bundled/features.h",
-]

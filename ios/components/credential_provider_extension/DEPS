@@ -1,4 +1,0 @@
-include_rules = [
-  "+components/autofill/core/browser/proto",
-  "+crypto/apple/keychain_util.h",
-]

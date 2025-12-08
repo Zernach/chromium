@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>History Chat - Settings</title>
+    <link rel="stylesheet" href="options.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>History Chat Settings</h1>
+        </header>
+
+        <main>
+            <section class="settings-section">
+                <h2>AI Access Configuration</h2>
+                <p class="description">
+                    Choose how to process your browsing history: use the managed backend (no API key required) or provide your own OpenAI API key for direct access.
+                </p>
+
+                <div class="form-group">
+                    <label for="api-key-input">OpenAI API Key (Optional)</label>
+                    <div class="input-wrapper">
+                        <input
+                            type="password"
+                            id="api-key-input"
+                            placeholder="Enter your OpenAI API key or leave empty to use backend"
+                            autocomplete="off"
+                        />
+                        <button id="toggle-visibility-button" class="eye-icon" type="button" aria-label="Toggle password visibility">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+                                <circle cx="12" cy="12" r="3"></circle>
+                            </svg>
+                        </button>
+                    </div>
+                    <div id="api-key-status" class="status-message"></div>
+                </div>
+
+                <div class="button-group">
+                    <button id="save-api-key-button" class="btn btn-primary">Save API Key</button>
+                    <button id="clear-api-key-button" class="btn btn-secondary">Clear API Key</button>
+                </div>
+
+                <div class="info-box">
+                    <strong>Two Modes Available:</strong>
+                    <ul style="margin: 0.5rem 0; padding-left: 1.5rem;">
+                        <li><strong>Backend Mode (Default):</strong> Leave API key empty. Your browsing history is sent to the managed backend for processing.</li>
+                        <li><strong>Direct OpenAI Mode:</strong> Provide your own API key. Calls OpenAI directly from the extension with your key.</li>
+                    </ul>
+                </div>
+            </section>
+
+            <section class="settings-section">
+                <h2>Privacy & History Settings</h2>
+
+                <div class="form-group">
+                    <label for="history-range">History Date Range (days)</label>
+                    <input
+                        type="number"
+                        id="history-range"
+                        value="5000"
+                        min="1"
+                        max="10000"
+                    />
+                    <p class="help-text">Only include history from the last N days (up to 10,000 days, ~27 years)</p>
+                </div>
+
+                <div class="form-group">
+                    <label for="max-results">Maximum Results</label>
+                    <input
+                        type="number"
+                        id="max-results"
+                        value="100000"
+                        min="10"
+                        max="100000"
+                        step="1000"
+                    />
+                    <p class="help-text">Maximum number of history entries to send to the AI (up to 100,000). More entries = better context, but may use more tokens.</p>
+                </div>
+
+                <button id="save-preferences-button" class="btn btn-primary">Save Preferences</button>
+                <div id="preferences-status" class="status-message"></div>
+            </section>
+
+            <section class="settings-section">
+                <h2>About</h2>
+                <p class="description">
+                    <strong>Chromium History Chat Extension</strong><br>
+                    Version <span id="extension-version">loading...</span>
+                </p>
+                <p class="description">
+                    This extension allows you to chat with OpenAI about your browsing history.
+                    Data is now transmitted to the backend for processing and filtering before reaching OpenAI.
+                </p>
+                <p class="description">
+                    <strong>Privacy Note:</strong> 
+                    <br><strong>Backend Mode:</strong> Browsing history is sent to the backend service, which then forwards relevant context to OpenAI.
+                    <br><strong>Direct OpenAI Mode:</strong> Browsing history is sent directly to OpenAI with your API key. No data goes through the backend.
+                </p>
+            </section>
+        </main>
+    </div>
+
+    <script type="module" src="../lib/options.js"></script>
+</body>
+</html>
